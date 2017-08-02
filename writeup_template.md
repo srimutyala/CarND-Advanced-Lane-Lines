@@ -41,10 +41,7 @@ Another opencv function 'undistort' corrects an input image using the camera mat
 ![alt text][image8]
 
 
-test
 
-
-![alt text][image1]
 
 ### Pipeline (single images)
 
