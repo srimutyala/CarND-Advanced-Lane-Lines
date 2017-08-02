@@ -37,7 +37,8 @@ To save some time, I also saved the variables to a pickle file. This way, I coul
 
 Another opencv function 'undistort' corrects an input image using the camera matrix and distortion coefficients variables. This is also the first in our pipeline.
 
-![alt text][image7]![alt text][image8]
+![alt text][image7]
+![alt text][image8]
 
 
 test
