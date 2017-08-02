@@ -31,12 +31,10 @@ The goals / steps of this project are the following:
 
 The camera calibration is carried out using the given set of calibration images (20 pictures of a chess-board pattern with 9x6 corners at different perspective to the horizontal plane). I ignored the images 1-5 as they were clipped in one way or the other at the edges thereby potentially affecting the calibration. The calibration is perfomed on the remaining 15 images by using opencv functions, 'findChessboardCorners' & 'calibrateCamera'. The findChessboardCorners returns the location of the corners it found and I passed them to the calibrateCamera function to get  'camera matrix' & 'distortion coefficients' variables.
 
+To save some time, I also saved the variables to a pickle file. This way, I could re-use the pickle file when trying out different ways to tackle the lane identification problem without recalculating the calibration variables.
 
-The code for this step is contained in the first code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`).  
+Another opencv function 'undistort' corrects an input image using the camera matrix and distortion coefficients variables. This is also the first in our pipeline.
 
-I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  
-
-I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
 ![alt text][image1]
 
