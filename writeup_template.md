@@ -1,9 +1,3 @@
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
----
-
 **Advanced Lane Finding Project**
 
 The goals / steps of this project are the following:
@@ -33,15 +27,10 @@ The goals / steps of this project are the following:
 
 ---
 
-### Writeup / README
-
-#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Advanced-Lane-Lines/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
-
-You're reading it!
-
 ### Camera Calibration
 
-#### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
+The camera calibration is carried out using the given set of calibration images (20 pictures of a chess-board pattern with 9x6 corners at different perspective to the horizontal plane). I ignored the images 1-5 as they were clipped in one way or the other at the edges thereby potentially affecting the calibration. The calibration is perfomed on the remaining 15 images by using opencv functions, 'findChessboardCorners' & 'calibrateCamera'. The findChessboardCorners returns the location of the corners it found and I passed them to the calibrateCamera function to get  'camera matrix' & 'distortion coefficients' variables.
+
 
 The code for this step is contained in the first code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`).  
 
