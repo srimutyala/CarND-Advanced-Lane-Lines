@@ -20,6 +20,8 @@ The goals / steps of this project are the following:
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
 [image6]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
+[image7]: ./camera_cal/calibration17.jpg "Original"
+[image8]: ./camera_cal/corrected17.jpg "Corrected"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -34,6 +36,11 @@ The camera calibration is carried out using the given set of calibration images 
 To save some time, I also saved the variables to a pickle file. This way, I could re-use the pickle file when trying out different ways to tackle the lane identification problem without recalculating the calibration variables.
 
 Another opencv function 'undistort' corrects an input image using the camera matrix and distortion coefficients variables. This is also the first in our pipeline.
+
+![alt text][image7]![alt text][image8]
+
+
+test
 
 
 ![alt text][image1]
