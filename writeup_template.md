@@ -21,7 +21,7 @@ The goals / steps of this project are the following:
 [image6]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 [image7]: ./camera_cal/calibration17.jpg "Original"
-[image8]: ./camera_cal/corrected17.jpg "Corrected"
+[image8]: ./camera_cal/Corrected17.jpg "Corrected"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
