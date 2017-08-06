@@ -51,7 +51,15 @@ Cameras suffers from distortion and it's generally a good idea to correct for it
 ![alt text][image8]
 
 
-#### 2. Image Processing
+#### 2. Perspective Transformation
+
+Right after the distortion correction, I applied a perspective transformation. To do so, I manually selected 4 points on a test image that corresponds to a rectange in reality. I selected 4 output point coordinates to project the 4 reactange points into an actual rectangle. This transforms the image's perspective that better aid in the lane identification. 
+
+![alt text][image9]
+![alt text][image10]
+
+
+#### 3. Image Processing
 
 I tried various approaches to manipulating & extracting the image information to obtain a low noise lane feature image. After many such attempts, I arrived at a combination of different color spaces uasge, thresholding, gradient characteritics & morphological operations.
 
@@ -76,16 +84,11 @@ I used a combination of color and gradient thresholds to generate a binary image
 ![alt text][image3]
 
 
-#### 3. Perspective Transformation
-
-Right after the distortion correction, I applied a perspective transformation. To do so, I manually selected 4 points on a test image that corresponds to a rectange in reality. I selected 4 output point coordinates to project the 4 reactange points into an actual rectangle. This transforms the image's perspective that better aid in the lane identification. 
-
-![alt text][image9]
-![alt text][image10]
 
 
+#### 4. Lane identification & fitting
+With the thresholded image in hand highlighting on lane pixels, I used the bottom half of the image and looked at the historgram
 
-#### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
 
