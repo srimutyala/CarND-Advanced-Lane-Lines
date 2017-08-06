@@ -55,6 +55,21 @@ Cameras suffers from distortion and it's generally a good idea to correct for it
 
 I tried various approaches to manipulating & extracting the image information to obtain a low noise lane feature image. After many such attempts, I arrived at a combination of different color spaces uasge, thresholding, gradient characteritics & morphological operations.
 
+#### a. Color Spaces
+In additional to the redaing the image in the RGB format/space, I created two more version of the image in the HSL & LAB color spaces. The lane's visibility changes depending on the lane color (white vs yellow) & environmental factors like, sun-light, shadow & reflection. To extract lanes under varyinig road conditions, I primarily used S and L-channels from HSL & B-channel from the LAB space.
+
+I created a weighted image from the S,L & B-channels with the L-channel weighing twice S & B-channels. This weighted image is scaled back to the 0-255 range later.
+
+#### b. Morphological Operations
+This weighted image is then processed with an opening operation using a horizontal element (1x30). The result of this operation is subtracted from the weighted image obtained in the prior section to arrive at a grayscale image that highlights the lane marking.
+
+#### c. Thresholding
+I thresholded the HSL image to filter out green but include blue information from the image. This filtered image is then converted to a grayscale image and thresholded to yield a binary image.
+
+#### d. Gradient
+Using the grayscale image obtained from the morphological operations above, we find the gradient in the X & Y-direction and obtain magnitude of the gradient. We also calculate the direction of the gradient. This directional graident is further enhanced by opening on 5x5 kernel.
+
+Finally, we arrive a binary thresholded image using the magnitude of the gradient, directional gradient & the thresholded HSL image.
 
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
 
