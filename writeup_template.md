@@ -93,16 +93,14 @@ Since lanes tend to maintain constant seperation between them and also change cu
 
 Once we identified the lane sin a image, for subsequent images, we can forego the hisyogram/sliding window search and just look for the lane with in a margin of the original lane. This simplication is due to a realistic assumption that lane changes cannot be drastic between frame rates consideration an average frame rate of the camera.
 
-Improvements to the lane identifiation & searching has been done
+Improvements to the lane identifiation & searching has been done by weighing in past frame's lane position with anew frame and deciding whether the new frame lanes are real or an outlier based on pre-selected error thresholds. If it is detrmined to be a bad frame, I re-did the historgram/sliding window search to reestablish the lanes.
 
-
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
 
 ![alt text][image5]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+The radius of curvature and center offset are calculated per frame and drawn on the image. This adds some insight into road conditions and the pipeline performance.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
