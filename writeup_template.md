@@ -77,9 +77,8 @@ I thresholded the HSL image to filter out green but include blue information fro
 #### d. Gradient
 Using the grayscale image obtained from the morphological operations above, we find the gradient in the X & Y-direction and obtain magnitude of the gradient. We also calculate the direction of the gradient. This directional graident is further enhanced by opening on 5x5 kernel.
 
-Finally, we arrive a binary thresholded image using the magnitude of the gradient, directional gradient & the thresholded HSL image.
+Finally, I arrived at a binary thresholded image using the magnitude of the gradient, directional gradient & the thresholded HSL image.
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
 
 ![alt text][image3]
 
