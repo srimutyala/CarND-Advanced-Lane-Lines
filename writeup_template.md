@@ -24,6 +24,7 @@ The goals / steps of this project are the following:
 [image8]: ./camera_cal/Corrected17.jpg "Corrected"
 [image9]: ./test_images/straight_lines1.jpg "Original"
 [image10]: ./test_images/warped.jpg "Corrected"
+[image11]: ./test_images/out_img.jpg "Combined"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -41,7 +42,7 @@ Another opencv function 'undistort' corrects an input image using the camera mat
 
 
 
-### Pipeline 
+### Pipeline (Test images)
 
 #### 1. Distortion Correction
 
@@ -80,7 +81,7 @@ Using the grayscale image obtained from the morphological operations above, we f
 Finally, I arrived at a binary thresholded image using the magnitude of the gradient, directional gradient & the thresholded HSL image.
 
 
-![alt text][image3]
+![alt text][image11]
 
 
 
