@@ -25,7 +25,7 @@ The goals / steps of this project are the following:
 [image9]: ./test_images/straight_lines1.jpg "Original"
 [image10]: ./test_images/warped.jpg "Corrected"
 [image11]: ./test_images/out_img.jpg "Combined"
-[image12]: ./test_images/lanes.jpg "Lane Identification"
+[image12]: ./test_images/lane.jpg "Lane Identification"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
