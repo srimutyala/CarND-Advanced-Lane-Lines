@@ -139,7 +139,9 @@ Below image shows the lanes mapped back to the original image (after converting 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
 Here's a [link to my video result](./project_video_output_project_submission.mp4)
+
 Here's a [link to my project video result without any added improvements](https://youtu.be/Vmh-w_hI2Fk)
+Here's a [link to my project video result with added improvements](https://youtu.be/Vmh-w_hI2Fk)
 
 
 
@@ -149,6 +151,7 @@ Here's a [link to my project video result without any added improvements](https:
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
+The improved pipeline begins tracking the lanes well but goes off later. It does a good job of reacquiring the lanes but improvements need to be made to keep the tracking go bad. To that end, I started using a weighted average for adding new lanes that helps in reducing drastic changes between each frame. This still ends refinement. More importantly, outlier elimination also needs some work as the bigger the outlier the higher of an effect it cna have on the weighted average lane positions. A better image manipulation to extract the lanes under different road conditions and reflections will help towards that end.
 
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
