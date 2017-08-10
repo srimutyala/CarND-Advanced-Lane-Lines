@@ -64,10 +64,32 @@ Right after the distortion correction, I applied a perspective transformation. T
 
 #### 3. Image Processing
 
-I tried various approaches to manipulating & extracting the image information to obtain a low noise lane feature image. After many such attempts, I arrived at a combination of different color spaces uasge, thresholding, gradient characteritics & morphological operations.
+I tried various approaches to manipulating & extracting the image information to obtain a low noise lane feature image. After many such attempts, I arrived at a combination of different color spaces usage, thresholding, gradient characteritics & morphological operations.
+
+Advanced Lane Finding_projectVideo.ipynb
+----------------------------------------- 
+This contains the code for finding lane lines in the project_video.mp4. This achivies a very good lane detetction for the given video with minimal complexity.
 
 #### a. Color Spaces
-In additional to the redaing the image in the RGB format/space, I created two more version of the image in the HSL & LAB color spaces. The lane's visibility changes depending on the lane color (white vs yellow) & environmental factors like, sun-light, shadow & reflection. To extract lanes under varyinig road conditions, I primarily used S and L-channels from HSL & B-channel from the LAB space.
+The RGB image is transformed to HLS space and it's filtered against two masks. One to exclude green and the other to include blue. This mask was developed during the introductory lane detection project early on in the course. This seems to give a good starting point to remove most of the wanted features from the image.
+
+#### b. Thresholding
+The filtered image is then converted to a grayscale image and thresholded to yield a binary image (intensity > 50 is included).
+
+#### c. Gradient
+Using the grayscale image of the original RGB image, I calculated the gradient in the X & Y-direction and obtained magnitude of the gradient. I also calculated the direction of the gradient. After experimenting with a few combinations, I settled on the total magnitude gradient & directional gradient. Using this with the thresholded HSL image provided a robust lane binary image.
+
+![alt text][image11]
+
+
+
+Advanced Lane Finding_Improvements.ipynb
+-----------------------------------------
+When the above pipeline is tested on the challenge_video or the harder_challenge_video, the performance was very bad. In order to create a better pipeline that can detect lanes on these challenging videos, further improvments in lane detections and outlier predictions have been employed.
+
+
+#### a. Color Spaces
+In additional to the reading the image in the RGB format/space, I created two more version of the image in the HSL & LAB color spaces. The lane's visibility changes depending on the lane color (white vs yellow) & environmental factors like, sun-light, shadow & reflection. To extract lanes under varyinig road conditions, I primarily used S and L-channels from HSL & B-channel from the LAB space.
 
 I created a weighted image from the S,L & B-channels with the L-channel weighing twice S & B-channels. This weighted image is scaled back to the 0-255 range later.
 
@@ -116,12 +138,14 @@ Below image shows the lanes mapped back to the original image (after converting 
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./project_video_output_project_submission.mp4)
 
 ---
 
 ### Discussion
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+
+
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
