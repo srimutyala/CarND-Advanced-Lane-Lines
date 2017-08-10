@@ -25,6 +25,7 @@ The goals / steps of this project are the following:
 [image9]: ./test_images/straight_lines1.jpg "Original"
 [image10]: ./test_images/warped.jpg "Corrected"
 [image11]: ./test_images/out_img.jpg "Combined"
+[image12]: ./test_images/lanes.jpg "Lane Identification"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -85,13 +86,14 @@ Finally, I arrived at a binary thresholded image using the magnitude of the grad
 
 
 
-
 #### 4. Lane identification & fitting
-With the thresholded image in hand highlighting on lane pixels, I used the bottom half of the image and looked at the historgram to find peaks that can be reprsentative of the lane. Dividing the image into two vertically, we pick the highhest peak in each half as the origin of the left and right labe respectively.
+With the thresholded image in hand highlighting on lane pixels, I used the bottom half of the image and looked at the historgram to find peaks that can be reprsentative of the lane. Dividing the image vertically into two halves, I picked the highhest peak in each half as the origin of the left and right lane respectively.
 
 Since lanes tend to maintain constant seperation between them and also change curvature relatively slowly (exceptions are acknowledged), we search a small window(rectangle) around the lane origin to find the lane points as we make our way verically in the image while sliding the window along the lane center. This gived us the left and right lane for this image.
 
-Once we identified the lane sin a image, for subsequent images, we can forego the hisyogram/sliding window search and just look for the lane with in a margin of the original lane. This simplication is due to a realistic assumption that lane changes cannot be drastic between frame rates consideration an average frame rate of the camera.
+![alt text][image12]
+
+Once we identified the lane for an image, for subsequent images, we can forego the histogram/sliding window search and just look for the lane with in a margin of the original lane. This simplication is due to a realistic assumption that lane changes cannot be drastic between frame rates consideration an average frame rate of the camera.
 
 Improvements to the lane identifiation & searching has been done by weighing in past frame's lane position with anew frame and deciding whether the new frame lanes are real or an outlier based on pre-selected error thresholds. If it is detrmined to be a bad frame, I re-did the historgram/sliding window search to reestablish the lanes.
 
