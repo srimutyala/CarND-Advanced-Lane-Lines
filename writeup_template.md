@@ -141,8 +141,10 @@ Below image shows the lanes mapped back to the original image (after converting 
 Here's a [link to my video result](./project_video_output_project_submission.mp4)
 
 Here's a [link to my project video result without any added improvements](https://youtu.be/Vmh-w_hI2Fk)
+
 Here's a [link to my project video result with added improvements](https://youtu.be/qmm8nCfrxjs)
 
+Here's a [link to my challenge video result with added improvements](https://youtu.be/tnTzX14EvwY)
 
 
 ---
