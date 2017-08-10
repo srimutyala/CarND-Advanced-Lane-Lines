@@ -26,6 +26,7 @@ The goals / steps of this project are the following:
 [image10]: ./test_images/warped.jpg "Corrected"
 [image11]: ./test_images/out_img.jpg "Combined"
 [image12]: ./test_images/lane.jpg "Lane Identification"
+[image13]: ./test_images/result.jpg "Result"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -98,17 +99,16 @@ Once we identified the lane for an image, for subsequent images, we can forego t
 Improvements to the lane identifiation & searching has been done by weighing in past frame's lane position with anew frame and deciding whether the new frame lanes are real or an outlier based on pre-selected error thresholds. If it is detrmined to be a bad frame, I re-did the historgram/sliding window search to reestablish the lanes.
 
 
-![alt text][image5]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-The radius of curvature and center offset are calculated per frame and drawn on the image. This adds some insight into road conditions and the pipeline performance.
+The radius of curvature and center offset are calculated per frame and drawn on the image. This adds some insight into road conditions and a quick check aginst the pipeline performance.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+Below image shows the lanes mapped back to the original image (after converting back from the perspective image).
 
-![alt text][image6]
+![alt text][image13]
 
 ---
 
