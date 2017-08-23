@@ -36,9 +36,9 @@ The goals / steps of this project are the following:
 
 ### Camera Calibration
 
-The camera calibration is carried out using the given set of calibration images (20 pictures of a chess-board pattern with 9x6 corners at different perspective to the horizontal plane). I ignored the images 1-5 as they were clipped in one way or the other at the edges thereby potentially affecting the calibration. The calibration is perfomed on the remaining 15 images by using opencv functions, 'findChessboardCorners' & 'calibrateCamera'. The findChessboardCorners returns the location of the corners it found and I passed them to the calibrateCamera function to get  'camera matrix' & 'distortion coefficients' variables.
+The camera calibration is carried out using the given set of calibration images (20 pictures of a chess-board pattern with 9x6 corners at different perspective to the horizontal plane). I ignored the images 1-5 as they were clipped in one way or the other at the edges thereby potentially affecting the calibration. The calibration is perfomed on the remaining 15 images by using opencv functions, 'findChessboardCorners' & 'calibrateCamera'. The findChessboardCorners returned the location of the corners it found and I passed them to the calibrateCamera function to get  'camera matrix' & 'distortion coefficients' variables.
 
-To save some time, I also saved the variables to a pickle file. This way, I could re-use the pickle file when trying out different ways to tackle the lane identification problem without recalculating the calibration variables.
+To save some time, I also saved these variables to a pickle file. This way, I could re-use the pickle file when trying out different ways to tackle the lane identification problem without recalculating the calibration variables every time.
 
 Another opencv function 'undistort' corrects an input image using the camera matrix and distortion coefficients variables. This is also the first in our pipeline.
 
@@ -48,7 +48,7 @@ Another opencv function 'undistort' corrects an input image using the camera mat
 
 #### 1. Distortion Correction
 
-Cameras suffers from distortion and it's generally a good idea to correct for it given a set of calibration for it. Since we already cailbrated our camera and obtained the calibration parameters, we can correct for the inherent distortion in the camera. Take a look at the below two images to see a distorted(original) image and a distortion-corrected image.
+Cameras generally suffer from distortion and it's usually a good idea to correct for it given a set of calibration for it. Since we already cailbrated our camera and obtained the calibration parameters, we can correct for the inherent distortion in the camera. Take a look at the below two images to see a distorted(original) image and a distortion-corrected image.
 
 ![alt text][image7]
 ![alt text][image8]
@@ -56,7 +56,7 @@ Cameras suffers from distortion and it's generally a good idea to correct for it
 
 #### 2. Perspective Transformation
 
-Right after the distortion correction, I applied a perspective transformation. To do so, I manually selected 4 points on a test image that corresponds to a rectange in reality. I selected 4 output point coordinates to project the 4 reactange points into an actual rectangle. This transforms the image's perspective that better aid in the lane identification. 
+Right after the distortion correction, I applied a perspective transformation. To do so, I manually selected 4 points on a test image that corresponds to a rectange in reality. I selected 4 output point coordinates to project the 4 reactange points into an actual rectangle. This transforms the image's perspective to better aid in the lane identification. 
 
 ![alt text][image9]
 ![alt text][image10]
@@ -64,14 +64,14 @@ Right after the distortion correction, I applied a perspective transformation. T
 
 #### 3. Image Processing
 
-I tried various approaches to manipulating & extracting the image information to obtain a low noise lane feature image. After many such attempts, I arrived at a combination of different color spaces usage, thresholding, gradient characteritics & morphological operations.
+I tried various approaches in manipulating & extracting the image information to obtain a low noise lane feature image. After many such attempts, I arrived at a combination of different color spaces usage, thresholding, gradient characteritics & morphological operations.
 
 Advanced Lane Finding_projectVideo.ipynb
 ----------------------------------------- 
 This contains the code for finding lane lines in the project_video.mp4. This achivies a very good lane detetction for the given video with minimal complexity.
 
 #### a. Color Spaces
-The RGB image is transformed to HLS space and it's filtered against two masks. One to exclude green and the other to include blue. This mask was developed during the introductory lane detection project early on in the course. This seems to give a good starting point to remove most of the wanted features from the image.
+The RGB image is transformed to HLS space and it's filtered against two masks. One to exclude green and the other to include blue. This mask was developed during the introductory lane detection project early on in the course. This seems to give a good starting point to remove most of the unwanted features from the image.
 
 #### b. Thresholding
 The filtered image is then converted to a grayscale image and thresholded to yield a binary image (intensity > 50 is included).
