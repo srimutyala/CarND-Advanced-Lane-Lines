@@ -27,6 +27,7 @@ The goals / steps of this project are the following:
 [image11]: ./test_images/out_img.jpg "Combined"
 [image12]: ./test_images/lane.jpg "Lane Identification"
 [image13]: ./test_images/result.jpg "Result"
+[image14]: ./test_images/binary_warped.jpg "Binary Warped"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -79,7 +80,7 @@ The filtered image is then converted to a grayscale image and thresholded to yie
 #### c. Gradient
 Using the grayscale image of the original RGB image, I calculated the gradient in the X & Y-direction and obtained magnitude of the gradient. I also calculated the direction of the gradient. After experimenting with a few combinations, I settled on the total magnitude gradient & directional gradient. Using this with the thresholded HSL image provided a robust lane binary image.
 
-![alt text][image11]
+![alt text][image14]
 
 
 
